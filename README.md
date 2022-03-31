@@ -25,5 +25,6 @@ cards.
 - #### axios
 - #### styled-components
 
+<p align="center"><a src="https://metaloziz.github.io/Learning_cards/">_____ Result _____</a></p>
 
 
