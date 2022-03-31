@@ -9,11 +9,11 @@
     Do you want to check yourself ?
 </p>
 
-You have deck with cards. Every card has question and answer. After answer, you can
+<p align="center"> You have deck with cards. Every card has question and answer. After answer, you can
 rate a card. You can create new card and change existing card. There is searching
 about card's name and about count cards. The application has pages: login,
 registration, profile (there is avatar and your name), page with deck and page with
-cards.
+cards. </p>
 
 <p align="center">
     <h3 align="center">Stack :</h3>
@@ -25,6 +25,4 @@ cards.
 - #### axios
 - #### styled-components
 
-<p align="center"><a src="https://metaloziz.github.io/Learning_cards/">_____ Result _____</a></p>
-
-
+- ### [Result](https://metaloziz.github.io/Learning_cards/)
