@@ -1,4 +1,3 @@
-export const IS_CHANGE_PASSWORD = 'PASSWORD/IS_CHANGE_PASSWORD';
+import { slicePassword } from 'store/reducers/passwordReducer';
 
-export const changePasswordAC = (isChange: boolean) =>
-  ({ type: IS_CHANGE_PASSWORD, payload: { isChange } } as const);
+export const { changePasswordAC } = slicePassword.actions;

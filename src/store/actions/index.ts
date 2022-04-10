@@ -20,7 +20,7 @@ export {
   changePersonalAvatarAC,
 } from './profileAction';
 
-export { changePasswordAC, IS_CHANGE_PASSWORD } from './passwordAction';
+export { changePasswordAC } from './passwordAction';
 
 export {
   setPacksAC,
