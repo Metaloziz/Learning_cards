@@ -6,7 +6,7 @@ import {
   appReducer,
   packsReducer,
   loginReducer,
-  ProfileReducer,
+  profileReducer,
   registrationReducer,
   cardsReducer,
 } from 'store/reducers';
@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
   app: appReducer,
   login: loginReducer,
   registration: registrationReducer,
-  profile: ProfileReducer,
+  profile: profileReducer,
   packs: packsReducer,
   cards: cardsReducer,
   password: passwordReducer,

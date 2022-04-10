@@ -5,7 +5,7 @@ import {
   editProfileAC,
 } from 'store/actions/profileAction';
 import {
-  ProfileReducer,
+  profileReducer,
   ProfileStateWithErrorKeyType,
 } from 'store/reducers/profileReducer';
 import { AuthMeType } from 'types/ProfileType';
@@ -60,7 +60,7 @@ describe('profile reducer', () => {
   test('change isEdit view', () => {
     const action = editProfileAC(newNeedEditValue);
 
-    const endState = ProfileReducer(initialState, action);
+    const endState = profileReducer(initialState, action);
 
     expect(endState).not.toBe(initialState);
     expect(endState.isEditProfileOpen).toBeTruthy();
@@ -69,7 +69,7 @@ describe('profile reducer', () => {
   test('check Auth me', () => {
     const action = authMeAC(dataFromAPI);
 
-    const endState = ProfileReducer(initialState, action);
+    const endState = profileReducer(initialState, action);
 
     expect(endState).not.toBe(initialState);
     expect(endState.profileData.email).toBe(dataFromAPI.email);
@@ -82,7 +82,7 @@ describe('profile reducer', () => {
   test('change Name', () => {
     const action = changePersonalNameAC(newNameUser);
 
-    const endState = ProfileReducer(initialState, action);
+    const endState = profileReducer(initialState, action);
 
     expect(endState).not.toBe(initialState);
     expect(endState.profileData.name).toBe(newNameUser);
@@ -91,7 +91,7 @@ describe('profile reducer', () => {
   test('change person Avatar', () => {
     const action = changePersonalAvatarAC(newAvatarURL);
 
-    const endState = ProfileReducer(initialState, action);
+    const endState = profileReducer(initialState, action);
 
     expect(endState).not.toBe(initialState);
     expect(endState.profileData.avatar).toBe(newAvatarURL);

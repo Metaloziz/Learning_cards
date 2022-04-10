@@ -11,11 +11,7 @@ export { isLoadingAC, initializeMeAC, setErrorMessageAC } from './appAction';
 
 export {
   authMeAC,
-  CHECK_AUTH,
-  CHANGE_NAME,
-  CHANGE_AVATAR,
   editProfileAC,
-  CHANGE_PERSONAL_DATA,
   changePersonalNameAC,
   changePersonalAvatarAC,
 } from './profileAction';
