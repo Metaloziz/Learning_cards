@@ -1,9 +1,3 @@
-export const SET_IS_LOGIN = 'LOGIN/SET_IS_LOGIN';
+import { sliceLogin } from 'store/reducers/loginReducer';
 
-export const setIsLoginAC = (isLogin: boolean) =>
-  ({
-    type: SET_IS_LOGIN,
-    payload: {
-      isLogin,
-    },
-  } as const);
+export const { setIsLoginAC } = sliceLogin.actions;

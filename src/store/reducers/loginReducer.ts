@@ -1,4 +1,4 @@
-import { SET_IS_LOGIN, LoginActionType } from 'store/actions';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type LoginStateWithErrorKey = {
   isLogin: boolean;
@@ -8,14 +8,14 @@ const initialState: LoginStateWithErrorKey = {
   isLogin: false,
 };
 
-export const loginReducer = (
-  state = initialState,
-  action: LoginActionType,
-): LoginStateWithErrorKey => {
-  switch (action.type) {
-    case SET_IS_LOGIN:
-      return { ...state, ...action.payload };
-    default:
-      return state;
-  }
-};
+export const sliceLogin = createSlice({
+  name: 'Login',
+  initialState,
+  reducers: {
+    setIsLoginAC(state, action: PayloadAction<boolean>) {
+      state.isLogin = action.payload;
+    },
+  },
+});
+
+export const loginReducer = sliceLogin.reducer;

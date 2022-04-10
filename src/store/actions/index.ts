@@ -5,7 +5,7 @@ export {
   SET_REGISTRATION_IS_COMPLETED,
 } from 'store/actions/registrationAction';
 
-export { setIsLoginAC, SET_IS_LOGIN } from './loginAction';
+export { setIsLoginAC } from './loginAction';
 
 export { isLoadingAC, initializeMeAC, setErrorMessageAC } from './appAction';
 
