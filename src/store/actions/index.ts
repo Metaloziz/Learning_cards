@@ -51,19 +51,12 @@ export {
 
 export {
   setCardsAC,
-  SET_CARDS,
   setSortCardsAC,
-  RERENDER_CARD,
   rerenderCardAC,
-  SET_SORT_CARDS,
   setPageCountCardsAC,
   setSearchAnswerCardsAC,
-  SET_PAGE_COUNT_CARDS,
   setCurrentPageCardsAC,
   setSearchQuestionCardsAC,
-  SET_CURRENT_PAGE_CARDS,
-  SET_SEARCH_ANSWER_CARDS,
-  SET_SEARCH_QUESTION_CARDS,
 } from 'store/actions/cardsAction';
 
 export * from './type';

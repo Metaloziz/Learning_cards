@@ -1,13 +1,5 @@
-import {
-  CardsActionType,
-  RERENDER_CARD,
-  SET_CARDS,
-  SET_CURRENT_PAGE_CARDS,
-  SET_PAGE_COUNT_CARDS,
-  SET_SEARCH_ANSWER_CARDS,
-  SET_SEARCH_QUESTION_CARDS,
-  SET_SORT_CARDS,
-} from 'store/actions';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { CardsType } from 'types';
 
 export type InitialStateType = {
@@ -51,26 +43,32 @@ export const initialState: InitialStateType = {
   rerenderFlag: ['rerender'],
 };
 
-export const cardsReducer = (
-  state = initialState,
-  action: CardsActionType,
-): InitialStateType => {
-  switch (action.type) {
-    case SET_CARDS:
-      return { ...state, pack: action.payload.cards };
-    case SET_SORT_CARDS:
-      return { ...state, ...action.payload };
-    case SET_SEARCH_ANSWER_CARDS:
-      return { ...state, ...action.payload };
-    case SET_SEARCH_QUESTION_CARDS:
-      return { ...state, ...action.payload };
-    case RERENDER_CARD:
-      return { ...state, rerenderFlag: { ...state.rerenderFlag } };
-    case SET_CURRENT_PAGE_CARDS:
-      return { ...state, pack: { ...state.pack, ...action.payload } };
-    case SET_PAGE_COUNT_CARDS:
-      return { ...state, pack: { ...state.pack, ...action.payload } };
-    default:
-      return state;
-  }
-};
+export const sliceCards = createSlice({
+  name: 'cards',
+  initialState,
+  reducers: {
+    setCardsAC(state, action: PayloadAction<CardsType>) {
+      state.pack = action.payload;
+    },
+    setSortCardsAC(state, action: PayloadAction<string>) {
+      state.sort = action.payload;
+    },
+    setSearchQuestionCardsAC(state, action: PayloadAction<string>) {
+      state.searchQuestion = action.payload;
+    },
+    setSearchAnswerCardsAC(state, action: PayloadAction<string>) {
+      state.searchAnswer = action.payload;
+    },
+    rerenderCardAC(state) {
+      state.rerenderFlag = { ...state.rerenderFlag };
+    },
+    setCurrentPageCardsAC(state, action: PayloadAction<number>) {
+      state.pack.page = action.payload;
+    },
+    setPageCountCardsAC(state, action: PayloadAction<number>) {
+      state.pack.pageCount = action.payload;
+    },
+  },
+});
+
+export const cardsReducer = sliceCards.reducer;
