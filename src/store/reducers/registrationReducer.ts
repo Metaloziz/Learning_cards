@@ -1,8 +1,5 @@
-import {
-  SET_REGISTRATION_IS_COMPLETED,
-  SET_STATUS,
-  RegistrationActionType,
-} from 'store/actions';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { StatusType } from 'types';
 
 export type InitialStateType = {
@@ -15,16 +12,17 @@ const initialState: InitialStateType = {
   status: 'completed',
 };
 
-export const registrationReducer = (
-  state = initialState,
-  action: RegistrationActionType,
-): InitialStateType => {
-  switch (action.type) {
-    case SET_STATUS:
-      return { ...state, status: action.payload.status };
-    case SET_REGISTRATION_IS_COMPLETED:
-      return { ...state, isCompleted: action.payload.isCompleted };
-    default:
-      return state;
-  }
-};
+export const sliceRegistration = createSlice({
+  name: 'Registration',
+  initialState,
+  reducers: {
+    setRegistrationIsCompletedAC(state, action: PayloadAction<boolean>) {
+      state.isCompleted = action.payload;
+    },
+    setStatusAC(state, action: PayloadAction<StatusType>) {
+      state.status = action.payload;
+    },
+  },
+});
+
+export const registrationReducer = sliceRegistration.reducer;

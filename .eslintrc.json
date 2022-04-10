@@ -32,7 +32,7 @@
     "no-magic-numbers": "off",
     "default-param-last": "off",
     "no-use-before-define": "off",
-    "no-param-reassign": "warn",
+    "no-param-reassign": "off",
     "react/jsx-props-no-spreading": "off",
     "no-multiple-empty-lines": [
       "error",

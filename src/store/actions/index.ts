@@ -1,8 +1,6 @@
 export {
   setStatusAC,
-  SET_STATUS,
   setRegistrationIsCompletedAC,
-  SET_REGISTRATION_IS_COMPLETED,
 } from 'store/actions/registrationAction';
 
 export { setIsLoginAC } from './loginAction';
