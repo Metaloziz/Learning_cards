@@ -1,18 +1,5 @@
-import {
-  PacksActionType,
-  RERENDER_PACK,
-  SET_CURRENT_PAGE_PACKS,
-  SET_IS_MY_PACK,
-  SET_LOCAL_MAX_CARDS_COUNT,
-  SET_LOCAL_MIN_CARDS_COUNT,
-  SET_MAX_CARDS_COUNT,
-  SET_MIN_CARDS_COUNT,
-  SET_PACKS,
-  SET_PAGE_COUNT_PACKS,
-  SET_RESULT_MESSAGE,
-  SET_SEARCH_PACK,
-  SET_SORT_PACKS,
-} from 'store/actions';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { PacksType, PackType } from 'types';
 
 export type InitialStateType = {
@@ -43,54 +30,47 @@ const initialState: InitialStateType = {
   resultMessageAddPack: '',
 };
 
-export const packsReducer = (
-  state = initialState,
-  action: PacksActionType,
-): InitialStateType => {
-  switch (action.type) {
-    case SET_PACKS:
-      return {
-        ...state,
-        packs: action.payload.cards,
-      };
-    case SET_SORT_PACKS:
-      return { ...state, sort: action.payload.sort };
-    case SET_SEARCH_PACK:
-      return { ...state, searchPack: action.payload.searchValue };
-    case SET_CURRENT_PAGE_PACKS:
-      return { ...state, packs: { ...state.packs, page: action.payload.page } };
-    case SET_PAGE_COUNT_PACKS:
-      return {
-        ...state,
-        packs: { ...state.packs, pageCount: action.payload.pageCount },
-      };
-    case SET_IS_MY_PACK:
-      return { ...state, isMyPack: action.payload.isMyPack };
-    case RERENDER_PACK:
-      return { ...state, rerenderFlag: { ...state.rerenderFlag } };
-    case SET_MIN_CARDS_COUNT:
-      return {
-        ...state,
-        packs: { ...state.packs, minCardsCount: action.payload.minCards },
-      };
-    case SET_MAX_CARDS_COUNT:
-      return {
-        ...state,
-        packs: { ...state.packs, maxCardsCount: action.payload.maxCards },
-      };
-    case SET_LOCAL_MIN_CARDS_COUNT:
-      return {
-        ...state,
-        localMinRage: action.payload.minCards,
-      };
-    case SET_LOCAL_MAX_CARDS_COUNT:
-      return {
-        ...state,
-        localMaxRage: action.payload.maxCards,
-      };
-    case SET_RESULT_MESSAGE:
-      return { ...state, resultMessageAddPack: action.payload.message };
-    default:
-      return state;
-  }
-};
+export const slicePacks = createSlice({
+  name: 'Packs',
+  initialState,
+  reducers: {
+    setPacksAC(state, action: PayloadAction<PacksType>) {
+      state.packs = action.payload;
+    },
+    setSortPacksAC(state, action: PayloadAction<string>) {
+      state.sort = action.payload;
+    },
+    setSearchPackAC(state, action: PayloadAction<string>) {
+      state.searchPack = action.payload;
+    },
+    setCurrentPagePacksAC(state, action: PayloadAction<number>) {
+      state.packs.page = action.payload;
+    },
+    setPageCountPacksAC(state, action: PayloadAction<number>) {
+      state.packs.pageCount = action.payload;
+    },
+    setIsMyPackAC(state, action: PayloadAction<boolean>) {
+      state.isMyPack = action.payload;
+    },
+    rerenderPackAC(state) {
+      state.rerenderFlag = { ...state.rerenderFlag };
+    },
+    setMinCardsCountAC(state, action: PayloadAction<number>) {
+      state.packs.minCardsCount = action.payload;
+    },
+    setMaxCardsCountAC(state, action: PayloadAction<number>) {
+      state.packs.maxCardsCount = action.payload;
+    },
+    setLocalMinCardsCountAC(state, action: PayloadAction<number>) {
+      state.localMinRage = action.payload;
+    },
+    setLocalMaxCardsCountAC(state, action: PayloadAction<number>) {
+      state.localMaxRage = action.payload;
+    },
+    setResultMessageAddPackAC(state, action: PayloadAction<string>) {
+      state.resultMessageAddPack = action.payload;
+    },
+  },
+});
+
+export const packsReducer = slicePacks.reducer;

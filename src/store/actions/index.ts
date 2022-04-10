@@ -23,30 +23,18 @@ export {
 export { changePasswordAC, IS_CHANGE_PASSWORD } from './passwordAction';
 
 export {
-  SET_PACKS,
   setPacksAC,
   setIsMyPackAC,
   setSortPacksAC,
   setSearchPackAC,
-  RERENDER_PACK,
   rerenderPackAC,
-  SET_IS_MY_PACK,
-  SET_SORT_PACKS,
-  SET_SEARCH_PACK,
   setMaxCardsCountAC,
   setMinCardsCountAC,
-  SET_MAX_CARDS_COUNT,
-  SET_MIN_CARDS_COUNT,
   setPageCountPacksAC,
-  SET_PAGE_COUNT_PACKS,
   setCurrentPagePacksAC,
-  SET_CURRENT_PAGE_PACKS,
   setLocalMinCardsCountAC,
   setLocalMaxCardsCountAC,
-  SET_LOCAL_MAX_CARDS_COUNT,
-  SET_LOCAL_MIN_CARDS_COUNT,
   setResultMessageAddPackAC,
-  SET_RESULT_MESSAGE,
 } from 'store/actions/packsAction';
 
 export {

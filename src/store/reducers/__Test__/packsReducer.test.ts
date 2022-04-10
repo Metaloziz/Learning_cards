@@ -75,7 +75,7 @@ beforeEach(() => {
   isMyPack = true;
 });
 
-describe('pack reducer', () => {
+describe('packs reducer', () => {
   test('set Cards from API', () => {
     const action = setPacksAC(packs);
 
