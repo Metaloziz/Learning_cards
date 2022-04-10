@@ -21,7 +21,7 @@ beforeEach(() => {
 
 describe('app reducer', () => {
   test('set error message', () => {
-    const action = setErrorMessageAC({ errorMessage });
+    const action = setErrorMessageAC(errorMessage);
 
     const endState = appReducer(initialState, action);
 
@@ -31,7 +31,7 @@ describe('app reducer', () => {
   });
 
   test('set initialized', () => {
-    const action = initializeMeAC({ isInitialize });
+    const action = initializeMeAC(isInitialize);
 
     const endState = appReducer(initialState, action);
 
@@ -41,7 +41,7 @@ describe('app reducer', () => {
   });
 
   test('set loading', () => {
-    const action = isLoadingAC({ isLoading });
+    const action = isLoadingAC(isLoading);
 
     const endState = appReducer(initialState, action);
 

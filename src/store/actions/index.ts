@@ -7,14 +7,7 @@ export {
 
 export { setIsLoginAC, SET_IS_LOGIN } from './loginAction';
 
-export {
-  IS_LOADING,
-  isLoadingAC,
-  INITIALIZE_ME,
-  initializeMeAC,
-  setErrorMessageAC,
-  SET_ERROR_MESSAGE,
-} from './appAction';
+export { isLoadingAC, initializeMeAC, setErrorMessageAC } from './appAction';
 
 export {
   authMeAC,
