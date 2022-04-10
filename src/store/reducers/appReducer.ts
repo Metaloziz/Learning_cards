@@ -1,9 +1,4 @@
-import {
-  AppActionsType,
-  INITIALIZE_ME,
-  IS_LOADING,
-  SET_ERROR_MESSAGE,
-} from 'store/actions';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type InitialStateType = {
   errorMessage: string | null;
@@ -17,18 +12,36 @@ const initialState: InitialStateType = {
   isLoading: false,
 };
 
-export const appReducer = (
-  state = initialState,
-  action: AppActionsType,
-): InitialStateType => {
-  switch (action.type) {
-    case SET_ERROR_MESSAGE:
-      return { ...state, errorMessage: action.payload.errorMessage };
-    case INITIALIZE_ME:
-      return { ...state, isInitialize: action.payload.isInitialize };
-    case IS_LOADING:
-      return { ...state, isLoading: action.payload.isLoading };
-    default:
-      return state;
-  }
-};
+export const sliceApp = createSlice({
+  name: 'App',
+  initialState,
+  reducers: {
+    setErrorMessageAC(state, action: PayloadAction<{ errorMessage: string | null }>) {
+      state.errorMessage = action.payload.errorMessage;
+    },
+    initializeMeAC(state, action: PayloadAction<{ isInitialize: boolean }>) {
+      state.isInitialize = action.payload.isInitialize;
+    },
+    isLoadingAC(state, action: PayloadAction<{ isLoading: boolean }>) {
+      state.isLoading = action.payload.isLoading;
+    },
+  },
+});
+
+export const appReducer = sliceApp.reducer;
+
+// export const _appReducer = (
+//   state = initialState,
+//   action: AppActionsType,
+// ): InitialStateType => {
+//   switch (action.type) {
+//     case SET_ERROR_MESSAGE:
+//       return {...state, errorMessage: action.payload.errorMessage};
+//     case INITIALIZE_ME:
+//       return {...state, isInitialize: action.payload.isInitialize};
+//     case IS_LOADING:
+//       return {...state, isLoading: action.payload.isLoading};
+//     default:
+//       return state;
+//   }
+// };

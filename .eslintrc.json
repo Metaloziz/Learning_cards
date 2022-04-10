@@ -32,12 +32,7 @@
     "no-magic-numbers": "off",
     "default-param-last": "off",
     "no-use-before-define": "off",
-    "no-param-reassign": [
-      "error",
-      {
-        "props": false
-      }
-    ],
+    "no-param-reassign": "warn",
     "react/jsx-props-no-spreading": "off",
     "no-multiple-empty-lines": [
       "error",
@@ -82,7 +77,10 @@
       }
     ],
     "react/default-props-match-prop-types": [
-      "error", { "allowRequiredDefaults": false }
+      "error",
+      {
+        "allowRequiredDefaults": false
+      }
     ],
     "react/function-component-definition": [
       2,
